@@ -7,10 +7,10 @@ arrays.reduce((acc, elm) => {
 // → [1, 2, 3, 4, 5, 6]
 
 // Challenge 2. Your own loop
-function myLoop(n, condition, update, fn) {
-  while(condition(n)) {
-    fn(n);
-    n = update(n)
+function myLoop(value, test, update, bodyFn) {
+  while(test(value)) {
+    bodyFn(value);
+    value = update(value);
   }
 }
 
@@ -21,8 +21,13 @@ myLoop(3, n => n > 0, n => n - 1, console.log);
 
 // Challenge 3. Everything
 function every(array, test) {
- 
+  let result = true;
+ for(let element of array) {
+   result = test(element) && result 
+ }
+ return result
 }
+
 
 console.log(every([1, 3, 5], n => n < 10));
 // → true
@@ -33,10 +38,10 @@ console.log(every([], n => n < 10));
 
 // Challenge 4. Dominant writing direction
 function dominantDirection(text) {
-  let arr = [];
-  for(elm of array) {
-    if()
-  }
+  // let arr = [];
+  // for(elm of array) {
+  //   if()
+  // }
 }
 
 console.log(dominantDirection("Hello!"));
